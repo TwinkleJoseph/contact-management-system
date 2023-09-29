@@ -1,15 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <ContactList :contacts="contacts" v-model:filter="filter" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import axios from 'axios';
+import ContactList from './components/ContactList.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    ContactList
+  },
+  data() {
+    return {
+      contacts: [],
+      filter: ''
+    };
+  },
+   mounted() {
+    // Fetch initial contacts from the API
+    axios.get('https://jsonplaceholder.typicode.com/users').then(response => {
+      this.contacts = response.data;
+    });
   }
 }
 </script>
