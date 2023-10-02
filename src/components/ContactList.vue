@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import '../styles/main.css';
+
 export default {
   props: ['contacts', 'filter'],
   computed: {
@@ -39,31 +41,4 @@ export default {
 };
 </script>
 
-<style scoped>
 
-.contact-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 1rem;
-}
-
-.contact-table th, .contact-table td {
-  border: 1px solid #ddd;
-  padding: 0.75rem;
-  text-align: left;
-}
-
-.contact-table th {
-  background-color: #f2f2f2;
-  font-weight: bold;
-}
-
-.contact-table td a {
-  color: #007BFF;
-  text-decoration: none;
-}
-
-.contact-table td a:hover {
-  text-decoration: underline;
-}
-</style>
