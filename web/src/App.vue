@@ -22,7 +22,7 @@ export default {
    mounted() {
     // Fetch initial contacts from the API
     //https://jsonplaceholder.typicode.com/users
-    axios.get('http://localhost:3000/api/users').then(response => {
+    axios.get('http://localhost:5000/api/users').then(response => {
       this.contacts = response.data;
       console.log('contacts received '+this.contacts)
     });
