@@ -13,11 +13,11 @@ Database is hosted in PostgreSQL database.
 Application can be deployed onto docker.
 
 ## Important Links 
-Web Application : http://localhost:3000/      
-REST API URL : http://localhost:5000/api/  
-GET all users: http://localhost:5000/api/users
-Add a new user: http://localhost:5000/api/user (POST)  
-Update a user: http://localhost:5000/api/user/:id (PUT)
+Web Application : http://localhost:3000/       
+REST API URL : http://localhost:5000/api/   
+GET all users: http://localhost:5000/api/users    
+Add a new user: http://localhost:5000/api/user (POST)       
+Update a user: http://localhost:5000/api/user/:id (PUT)   
 
 ## Author
 Twinkle Joseph
