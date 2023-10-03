@@ -24,7 +24,8 @@ jobs:
         node-version: '18.x'
 
     - name: Install dependencies
-      run: npm install    
+      run: npm install
+      working-directory: ./web    
 
     - name: Run frontend tests and build
       run: npm run test
@@ -35,6 +36,10 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+    - name: Install dependencies
+      run: npm install
+      working-directory: ./api     
 
     - name: Run backend tests and build
       run: npm run test
