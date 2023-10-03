@@ -4,15 +4,13 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "api/**"  
   pull_request:
     types: [opened, synchronize, reopened]    
 
 jobs:
   sonarcloud:
     name: SonarCloud
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
     - name: Checkout code
@@ -21,12 +19,20 @@ jobs:
           fetch-depth: 0  
 
     - name: Set up Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
-        node-version: '16'
+        node-version: '18.x'
 
-    - name: Install dependencies
-      run: npm install
+    - name: Get npm cache directory
+      id: npm-cache-dir
+      run: |
+        echo "::set-output name=dir::$(npm config get cache)"    
+
+    - name: Run Tests
+      run: |
+        cd api
+        npm ci
+        npm run dev
 
     - name: Analyze with SonarQube
       uses: SonarSource/sonarcloud-github-action@master
