@@ -9,8 +9,9 @@ This application will pull data from a partner rest service. In addition applica
 This application has a front-end built using Vue JS and backend RESTful service built in NodeJS. 
 Database is hosted in PostgreSQL database. 
 
-## 3. Deployment 
-Application can be deployed onto docker.
+## 3. Deployment on Docker
+Application can be deployed onto docker. Make sure that Docker or Docker Desktop is installed on your machine. 
+
 ### 3.1. Build images
 docker compose build
 
@@ -19,6 +20,34 @@ docker compose up -d
 
 Services could be started independently using service name in the above command.
 eg: docker compose up -d api
+
+## 4. Running locally without docker
+Application components could be run without docker using npm run commands.
+
+### 4.1 Creating database.
+a. Login to Postgres console using PgAdmin or sqlplus command line utility.
+b. Create a new database 'contactsdb'
+
+   CREATE DATABASE contactsdb
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    CONNECTION LIMIT = -1;
+
+c. Create user table using script contacts_db_ddl.sql in the db directory.
+
+## 4.2 Starting Back-end API
+   cd api
+   $ npm install -y
+   $ npm run dev
+   Access API at http://localhost:5000/api/users
+
+## 4.3 Starting Web front end
+   cd web
+   $ npm install -y
+   $ npm run serve
+   Access Vue application at  http://localhost:8080
+
 
 ## Important Links 
 Web Application : http://localhost:8080/       
