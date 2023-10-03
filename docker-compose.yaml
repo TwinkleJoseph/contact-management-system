@@ -34,5 +34,17 @@ services:
       LOG_LEVEL: ${LOG_LEVEL} 
       ALLOWED_ORIGINS: ${ALLOWED_ORIGINS}    
 
+  web-app:
+    build:
+      dockerfile: Dockerfile
+      context: "./web"
+    image: web:latest
+    ports:
+      - "8080:8080"
+    stdin_open: true
+    volumes:      
+      - ./web:/web-app
+      - /web-app/node_modules     
+
 volumes: 
   pgdata:      
