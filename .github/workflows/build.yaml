@@ -29,4 +29,11 @@ jobs:
       with:
         context: ./web
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/contact-management-web:latest    
+        tags: ${{ secrets.DOCKER_USERNAME }}/contact-management-web:latest 
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v2
+      with:
+        context: ./api
+        push: true
+        tags: ${{ secrets.DOCKER_USERNAME }}/contact-management-api:latest       
