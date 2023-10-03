@@ -11,10 +11,10 @@ Database is hosted in PostgreSQL database.
 
 ## 3. Deployment 
 Application can be deployed onto docker.
-# 3.1. Build images
+### 3.1. Build images
 docker compose build
 
-# 3.2. Start application
+### 3.2. Start application
 docker compose up -d
 
 Services could be started independently using service name in the above command.
