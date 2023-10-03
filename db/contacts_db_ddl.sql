@@ -10,9 +10,6 @@ CREATE TABLE IF NOT EXISTS public.users
     user_name character varying(40) COLLATE pg_catalog."default",
     email character varying(40) COLLATE pg_catalog."default",
     phone character varying(40) COLLATE pg_catalog."default",
-    company_name character varying(40) COLLATE pg_catalog."default",
-    created_datetime timestamp without time zone NOT NULL DEFAULT now(),
-    updated_datetime timestamp without time zone NOT NULL DEFAULT now(),
     CONSTRAINT users_pkey PRIMARY KEY (id)
 );
 

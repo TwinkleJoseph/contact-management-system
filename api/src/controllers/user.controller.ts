@@ -3,11 +3,12 @@ import { PartnerServices } from "../services/partner.services";
 import { connection } from "../connections/db";
 import { UserServices } from "../services/user.services";
 import { Constants } from "../common/app.constants";
+import { User } from "../entities/user";
 
 export class UserController {
 
     /**
-     * Function to create add a new Boat to the swim lane
+     * Function to create add a new user to the swim lane
      * @param req 
      * @param res 
      */
@@ -16,9 +17,11 @@ export class UserController {
       const userServices:UserServices = new UserServices()
       connection
         .then(async () => {
-
+          console.log('After connection successful')
           const newUser = await userServices.createOrUpdateUser(req.body)
+          console.log('after service call',newUser)
           if (newUser !== null && typeof (newUser) !== Constants.UNDEFINED) {
+            console.log('Response json',newUser)
             res.status(Constants.OK)
               .json({
                 message: Constants.SUCCESSFULLY_CREATED_MESSAGE,
@@ -65,4 +68,26 @@ export class UserController {
             res.status(500).json({ error: 'Internal Server Error' });
         }
     }
+
+    /**
+     * Method to map the request entity to db entity for persistence.
+     * Typeorm will throw run time error if request object is send
+     * directly to database.
+     * @param user 
+     * @param reqUser 
+     * @returns 
+     */
+    private mapRequestToEntity(user:User, reqUser: User): User {
+      console.log('Inside mapRequestToEntity', user)
+      if(user == null || typeof (user) === Constants.UNDEFINED){
+        user = new User()
+      }
+
+      user.name = reqUser.name
+      user.userName = reqUser.userName
+      user.email = reqUser.email
+      user.phone = reqUser.phone
+      return user
+
+  }
 }

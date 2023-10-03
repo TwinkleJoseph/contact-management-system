@@ -12,7 +12,7 @@ export class UserServices {
 
 
     public async createOrUpdateUser(reqUser: User) {
-      console.log('BoatServices.createBoat() method')
+      console.log('UserServices.createOrUpdateUser() method',JSON.stringify(reqUser))
       return await this.userRepository.createOrUpdateUser(reqUser)
     }
 

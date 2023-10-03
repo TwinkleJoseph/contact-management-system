@@ -18,10 +18,4 @@ export class User {
     @Column({ length: 40, name: 'phone' })
     phone: string;
 
-    @CreateDateColumn({ type: 'timestamp', name: 'created_datetime' })
-    createdDateTime : Timestamp
-
-    @UpdateDateColumn({ type: 'timestamp', name: 'updated_datetime' })
-    updatedDateTime : Timestamp
-
 }
