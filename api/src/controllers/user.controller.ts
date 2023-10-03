@@ -49,7 +49,7 @@ export class UserController {
               const partnerContacts = await partnerServices.getContacts();
               console.log('partner contacts ', partnerContacts);
               /** Fetch contacts from contacts database */
-              const localUsers = await userServices.findAllUsers()
+              const localUsers = await userServices.findAllUsers();
 
               if (localUsers !== null && typeof (localUsers) !== Constants.UNDEFINED) {
                 // Combine the responses

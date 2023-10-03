@@ -13,7 +13,13 @@ export class UserServices {
 
     public async createOrUpdateUser(reqUser: User) {
       console.log('UserServices.createOrUpdateUser() method',JSON.stringify(reqUser))
-      return await this.userRepository.createOrUpdateUser(reqUser)
+      const user:User = new User()
+    
+      user.name = reqUser.name
+      user.userName = reqUser.userName
+      user.email = reqUser.email
+      user.phone = reqUser.phone
+      return await this.userRepository.createOrUpdateUser(user)
     }
 
     /**

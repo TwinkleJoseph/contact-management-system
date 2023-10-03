@@ -1,6 +1,6 @@
 import {Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, Timestamp, UpdateDateColumn} from 'typeorm'
 
-@Entity({name: 'user'})
+@Entity({name: 'users'})
 export class User {
 
     @PrimaryGeneratedColumn('uuid',{name: 'id'})
@@ -15,7 +15,7 @@ export class User {
     @Column({ length: 40, name: 'email',nullable: true, default: null })
     email: string;
 
-    @Column({ length: 40, name: 'phone' })
+    @Column({ length: 40, name: 'phone',nullable: true, default: null })
     phone: string;
 
 }
