@@ -25,28 +25,36 @@ eg: docker compose up -d api
 Application components could be run without docker using npm run commands.
 
 ### 4.1 Creating database.
-a. Login to Postgres console using PgAdmin or sqlplus command line utility.
-b. Create a new database 'contactsdb'
+a. Login to Postgres console using PgAdmin or sqlplus command line utility.  
+b. Create a new database 'contactsdb'  
 
-   CREATE DATABASE contactsdb
-    WITH 
-    OWNER = postgres
-    ENCODING = 'UTF8'
-    CONNECTION LIMIT = -1;
+   CREATE DATABASE contactsdb  
+    WITH   
+    OWNER = postgres  
+    ENCODING = 'UTF8'  
+    CONNECTION LIMIT = -1;  
 
-c. Create user table using script contacts_db_ddl.sql in the db directory.
+c. Create user table using script contacts_db_ddl.sql in the db directory.  
 
-## 4.2 Starting Back-end API
-   cd api
-   $ npm install -y
-   $ npm run dev
-   Access API at http://localhost:5000/api/users
+### 4.2 Starting Back-end API  
+   cd api  
+   $ npm install -y  
+   $ npm run dev  
+   Access API at http://localhost:5000/api/users  
 
-## 4.3 Starting Web front end
-   cd web
-   $ npm install -y
-   $ npm run serve
-   Access Vue application at  http://localhost:8080
+### 4.3 Starting Web front end
+   cd web  
+   $ npm install -y  
+   $ npm run serve  
+   Access Vue application at  http://localhost:8080  
+
+##  5. Testing
+
+This application is a buit using Vue.Js, Node.Js and PostgreSQL database. Application retrieves external contacts from the partner endpoint https://jsonplaceholder.typicode.com/users.  
+
+New contacts are maintained in the PostgreSQL database. As per the design, the contacts from partner api and database are merged together and send to web app. External contacts are currently not saved in the local database. Modifying these contacts will have to be treated differently.
+
+Please see the detailed  test results in Contact Management System Manual Test Cases.xsl attached here.
 
 
 ## Important Links 
