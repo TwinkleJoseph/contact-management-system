@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS public.users
     user_name character varying(40) COLLATE pg_catalog."default",
     email character varying(40) COLLATE pg_catalog."default",
     phone character varying(40) COLLATE pg_catalog."default",
+    website character varying(40) COLLATE pg_catalog."default",
     CONSTRAINT users_pkey PRIMARY KEY (id)
 );
 

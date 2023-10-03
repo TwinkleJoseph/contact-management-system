@@ -10,7 +10,7 @@
         <div class="contact-card-body">
           <p><i class="fas fa-phone"></i> {{ contact.phone }}</p>        
           <p><i class="fas fa-envelope"></i> {{ contact.email }}</p>         
-          <p><strong>Company:</strong> {{ contact.company.name }}</p>
+          <p><strong>Company:</strong> {{ contact.company ? contact.company.name : 'N/A' }}</p>
           <p><i class="fas fa-globe"></i> <a :href="contact.website">{{ contact.website }}</a></p>
         </div>
       </div>

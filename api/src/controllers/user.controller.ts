@@ -68,26 +68,4 @@ export class UserController {
             res.status(500).json({ error: 'Internal Server Error' });
         }
     }
-
-    /**
-     * Method to map the request entity to db entity for persistence.
-     * Typeorm will throw run time error if request object is send
-     * directly to database.
-     * @param user 
-     * @param reqUser 
-     * @returns 
-     */
-    private mapRequestToEntity(user:User, reqUser: User): User {
-      console.log('Inside mapRequestToEntity', user)
-      if(user == null || typeof (user) === Constants.UNDEFINED){
-        user = new User()
-      }
-
-      user.name = reqUser.name
-      user.userName = reqUser.userName
-      user.email = reqUser.email
-      user.phone = reqUser.phone
-      return user
-
-  }
 }

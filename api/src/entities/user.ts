@@ -10,12 +10,16 @@ export class User {
     name: string;
 
     @Column({ length: 40, name: 'user_name',nullable: true, default: null })
-    userName: string;
+    username: string;
 
     @Column({ length: 40, name: 'email',nullable: true, default: null })
     email: string;
 
     @Column({ length: 40, name: 'phone',nullable: true, default: null })
     phone: string;
+
+    @Column({ length: 40, name: 'website',nullable: true, default: null })
+    website: string;
+    
 
 }
