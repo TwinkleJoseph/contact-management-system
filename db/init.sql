@@ -4,3 +4,5 @@ CREATE DATABASE contactsdb
     OWNER = postgres
     ENCODING = 'UTF8'
     CONNECTION LIMIT = -1;
+
+\\i ./contacts_db_ddl.sql       

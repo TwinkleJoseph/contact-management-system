@@ -12,7 +12,8 @@ COPY ./package-lock.json /app/package-lock.json
 COPY ./package.json /app/package.json
 
 RUN npm cache clean --force && \
- 	npm install && \
+	rm -rf node_modules && \
+ 	npm install --verbose && \
 	npm install -g npm-check-updates
 
 # copy app source to image _after_ npm install so that
