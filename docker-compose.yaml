@@ -14,5 +14,25 @@ services:
       - pgdata:/var/lib/postgresql/data
       - ./db:/docker-entrypoint-initdb.d/
 
+  api:
+    build:
+      context: "./api"
+      dockerfile: Dockerfile
+    image: api:latest
+    depends_on:
+      - postgres_db
+    ports:
+      - "5000:5000"
+    environment:
+      DB_HOST: postgres_db
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_DATABASE: ${DB_DATABASE}
+      DB_SCHEMA: ${DB_SCHEMA}
+      DB_PORT: ${DB_PORT}
+      PORT: ${PORT}
+      LOG_LEVEL: ${LOG_LEVEL} 
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS}    
+
 volumes: 
   pgdata:      
