@@ -21,7 +21,7 @@ Services could be started independently using service name in the above command.
 eg: docker compose up -d api
 
 ## Important Links 
-Web Application : http://localhost:3000/       
+Web Application : http://localhost:8080/       
 REST API URL : http://localhost:5000/api/   
 GET all users: http://localhost:5000/api/users    
 Add a new user: http://localhost:5000/api/user (POST)       
