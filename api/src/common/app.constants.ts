@@ -5,5 +5,6 @@ export class Constants {
     public static NOT_FOUND=404
     public static SUCCESS_MESSAGE='Success'    
     public static UNDEFINED ='undefined'
-    public static INVALID_DATA='Invalid Data' 
+    public static INVALID_DATA='Invalid Data'     
+    public static SUCCESSFULLY_CREATED_MESSAGE = 'User created successfully!'
 }

@@ -6,6 +6,34 @@ import { Constants } from "../common/app.constants";
 
 export class UserController {
 
+    /**
+     * Function to create add a new Boat to the swim lane
+     * @param req 
+     * @param res 
+     */
+    public createUser(req: Request, res: Response) {
+      console.log('UserController.createUser() method')
+      const userServices:UserServices = new UserServices()
+      connection
+        .then(async () => {
+
+          const newUser = await userServices.createOrUpdateUser(req.body)
+          if (newUser !== null && typeof (newUser) !== Constants.UNDEFINED) {
+            res.status(Constants.OK)
+              .json({
+                message: Constants.SUCCESSFULLY_CREATED_MESSAGE,
+                user: newUser
+              })
+          } else {
+            console.log('Unexpected error', newUser)
+          }
+          console.log('Response from UserController.createUser() is', res.statusCode)
+        })
+        .catch(error => {
+          console.log('Exception occured in UserController.createUser() method ', JSON.stringify(error))
+        })
+    }
+
     public async findAllUsers(req: Request, res: Response) {
         try {
             console.log('UserController.findAllUsers() method');

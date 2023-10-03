@@ -18,6 +18,8 @@ export class Routes {
 
        
         app.route('/api/users').get(this.userController.findAllUsers)
+        .post(this.userController.createUser)            
+
 
 
     }

@@ -1,6 +1,20 @@
-import axios from "axios";
+import { getCustomRepository } from "typeorm";
+import { User } from "../entities/user";
+import { UserRepository } from "../repositories/user.repository";
 
 export class UserServices {
+
+    userRepository: UserRepository 
+
+    constructor (){
+      this.userRepository = getCustomRepository(UserRepository)
+    }
+
+
+    public async createOrUpdateUser(reqUser: User) {
+      console.log('BoatServices.createBoat() method')
+      return await this.userRepository.createOrUpdateUser(reqUser)
+    }
 
     /**
      * Function to get all contacts from contacts database
