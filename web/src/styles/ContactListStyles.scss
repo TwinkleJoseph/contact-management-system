@@ -1,0 +1,24 @@
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.contact-card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.contact-card-header {
+  margin-bottom: 10px;
+}
+
+.contact-card-header h3 {
+  margin: 0;
+}
+
+.contact-card-body p {
+  margin: 5px 0;
+}

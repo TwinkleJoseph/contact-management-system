@@ -2,31 +2,24 @@
   <div>
     <h2>Contact List</h2>
     <input :value="filter" @input="$emit('update:filter', $event.target.value)" placeholder="Filter by name" />
-    <table class="contact-table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>Website</th>
-          <th>Company</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="contact in filteredContacts" :key="contact.id">
-          <td>{{ contact.name }}</td>
-          <td>{{ contact.email }}</td>
-          <td>{{ contact.phone }}</td>
-          <td><a :href="contact.website">{{ contact.website }}</a></td>
-          <td>{{ contact.company.name }}</td>
-        </tr>
-      </tbody>
-    </table>
+     <div class="contact-grid">
+    <div v-for="contact in filteredContacts" :key="contact.id" class="contact-card">
+      <div class="contact-card-header">
+        <h4>{{ contact.name }}</h4>       
+      </div>
+      <div class="contact-card-body">
+        <p><i class="fas fa-phone"></i> {{ contact.phone }}</p>        
+        <p><i class="fas fa-envelope"></i> {{ contact.email }}</p>         
+        <p><strong>Company:</strong> {{ contact.company.name }}</p>
+        <p><i class="fas fa-globe"></i> <a :href="contact.website">{{ contact.website }}</a></p>
+      </div>
+    </div>
+  </div>
   </div>
 </template>
 
 <script>
-import '../styles/main.css';
+import '../styles/ContactListStyles.scss';
 
 export default {
   props: ['contacts', 'filter'],
